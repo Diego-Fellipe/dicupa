@@ -1,0 +1,278 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@600;800;900&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --pink: #ff4fa3;
+  --purple: #7138d8;
+  --yellow: #ffe66d;
+  --white: #fffafc;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #170d2a;
+  color: var(--white);
+  font-family: 'Nunito', sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at center,
+      #9d39a8 0%,
+      #51278b 38%,
+      #170d2a 78%);
+}
+
+.burst {
+  position: fixed;
+  inset: -50%;
+  z-index: -1;
+  pointer-events: none;
+  background: repeating-conic-gradient(
+    from 0deg,
+    #ff4fa3 0deg 9deg,
+    #7734cc 9deg 18deg,
+    #ffcf58 18deg 20deg,
+    #442078 20deg 29deg
+  );
+  opacity: 0.22;
+  animation: burstSpin 45s linear infinite;
+}
+
+.surprise {
+  min-height: 100vh;
+  width: 100%;
+  padding: 35px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.eyebrow {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(9px, 2vw, 13px);
+  line-height: 1.9;
+  color: var(--yellow);
+  margin: 0 0 25px;
+  animation: appear 1s both;
+}
+
+.photo-stage {
+  position: relative;
+  width: min(64vw, 330px);
+  aspect-ratio: 1;
+  margin: 8px auto 30px;
+  perspective: 900px;
+}
+
+.photo-frame {
+  position: absolute;
+  inset: 0;
+  padding: 9px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    #fff3a6,
+    #ff4fa3,
+    #8e57ff,
+    #fff3a6
+  );
+  box-shadow:
+    0 0 0 5px #fff7,
+    0 0 35px #ff4fa399,
+    0 0 85px #a75aff77;
+
+  animation: batmanEntrance 2.8s cubic-bezier(.15,.8,.2,1) both;
+}
+
+
+
+.photo-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 35%;
+  border: 4px solid #fff8;
+}
+
+
+
+
+
+.spark {
+  position: absolute;
+  z-index: 2;
+  color: var(--yellow);
+  font-size: 32px;
+  text-shadow: 0 0 15px #ff4fa3;
+  animation: twinkle 1.5s ease-in-out infinite alternate;
+}
+
+.spark-one {
+  top: 0;
+  right: 4%;
+}
+
+.spark-two {
+  bottom: 8%;
+  left: -5%;
+  color: #ff7dbd;
+  animation-delay: .4s;
+}
+
+.spark-three {
+  top: 35%;
+  left: -8%;
+  animation-delay: .8s;
+}
+
+h1 {
+  max-width: 100%;
+  margin: 0;
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(16px, 4.2vw, 31px);
+  line-height: 1.8;
+  color: #fff1a6;
+  text-shadow:
+    3px 3px 0 #d82e8b,
+    6px 6px 0 #4c1b7d,
+    0 0 25px #ff65bc;
+  opacity: 0;
+  transform: scale(.6) rotate(-4deg);
+  animation: loveReveal .9s 2.3s cubic-bezier(.2,1.6,.4,1) forwards;
+}
+
+.subtitle {
+  margin: 14px 0 20px;
+  font-size: clamp(15px, 3vw, 20px);
+  font-weight: 800;
+  color: #ffe6f3;
+  opacity: 0;
+  animation: appear 1s 3s forwards;
+}
+
+#musicButton {
+  border: 3px solid white;
+  border-radius: 999px;
+  padding: 13px 22px;
+  background: var(--pink);
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #9e2466;
+  transition: transform .2s, background .2s;
+}
+
+#musicButton:hover {
+  transform: translateY(-3px) scale(1.04);
+  background: #ff76ba;
+}
+
+#musicButton:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #9e2466;
+}
+
+.signature {
+  margin: 24px 0 0;
+  font-size: 12px;
+  color: #e9d5ff;
+  opacity: 0;
+  animation: appear 1s 3.3s forwards;
+}
+
+@keyframes batmanEntrance {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg) scale(.04);
+    filter: brightness(3) saturate(2);
+  }
+  20% {
+    opacity: 1;
+  }
+  70% {
+    transform: rotate(900deg) scale(1.12);
+    filter: brightness(1.5) saturate(1.5);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(1080deg) scale(1);
+    filter: none;
+  }
+}
+
+@keyframes loveReveal {
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+@keyframes burstSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes twinkle {
+  from {
+    transform: scale(.75) rotate(-10deg);
+    opacity: .65;
+  }
+  to {
+    transform: scale(1.2) rotate(12deg);
+    opacity: 1;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .surprise {
+    padding: 25px 16px;
+  }
+
+  .photo-stage {
+    width: min(72vw, 290px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .burst {
+    animation: none;
+  }
+
+  .photo-frame {
+    animation: appear 1s both;
+  }
+
+  h1, .subtitle, .signature {
+    animation-delay: 0s;
+  }
+}

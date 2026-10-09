@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#83d36f">
+  <title>Love Quest ♡</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="game">
+    <canvas id="world" aria-label="Love Quest, jogo romântico em pixel art"></canvas>
+
+    <header class="hud">
+      <div class="logo">
+        <span class="logo-heart">♥</span>
+        <div>
+          <h1>LOVE QUEST</h1>
+          <p>Uma missão para consertar tudo ♡</p>
+        </div>
+      </div>
+      <div class="chapter" id="chapter">CAPÍTULO 01 · PRECISAMOS CONVERSAR</div>
+    </header>
+
+    <div class="objective">
+      <span class="objective-icon">✦</span>
+      <span id="objectiveText">Tentar consertar as coisas</span>
+    </div>
+
+    <section class="dialogue" id="dialogue">
+      <div class="dialogue-heading">
+        <span id="speaker">ELA</span>
+        <span class="dialogue-hearts">♥ ♥ ♥</span>
+      </div>
+      <p id="dialogueText">
+        Eu ainda tô brava com você. Você sabia que eu já não tava num dia fácil e mesmo assim foi idiota comigo.
+      </p>
+      <div class="dialogue-footer">
+        <span id="dialogueHint">ESCOLHA BEM AS SUAS PALAVRAS</span>
+        <button id="nextButton">Continuar <span>▶</span></button>
+      </div>
+    </section>
+
+    <div class="toast" id="toast"></div>
+
+    <div class="ending-actions hidden" id="endingActions">
+      <button id="forgiveButton">Eu te perdoo, seu bobinho 💗</button>
+      <button id="thinkButton">Ainda preciso de um tempinho 🤨</button>
+    </div>
+
+    <div class="screen-vignette"></div>
+    <div class="scanlines"></div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
